@@ -3,5 +3,6 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"]
-  }
+  },
+  "package": ["adonisNuxtAuthTest/server/tsconfig.json"]
 }

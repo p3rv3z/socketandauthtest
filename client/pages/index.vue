@@ -10,6 +10,11 @@
             <input type="submit" value="Login" />
         </form>
         <button v-if="isLoggedin" @click="logout">Logout</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button @click="test">Test</button>
     </div>
 </template>
 
@@ -40,7 +45,11 @@ export default {
         async logout() {
             await this.$axios.$get('/auth/logout')
             this.isLoggedin = false
-        }
+        },
+
+        test() {
+            this.$axios.$get('/test')
+        },
     },
 }
 </script>

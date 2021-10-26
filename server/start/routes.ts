@@ -29,3 +29,7 @@ Route.group(() => {
   Route.post('register', 'AuthController.register')
   Route.get('logout', 'AuthController.logout')
 }).prefix('auth')
+
+Route.get('test', () => {
+  return 'hello'
+}).middleware('auth')

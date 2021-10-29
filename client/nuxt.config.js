@@ -37,6 +37,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-socket-io'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -44,6 +45,18 @@ export default {
     baseURL: 'http://localhost:3333',
     credentials: true
   },
+
+  // socket.io module configuration
+  io: {
+    // Options
+    sockets: [ // Required
+      { // At least one entry is required
+        name: 'home',
+        url: 'http://localhost:3333',
+      },
+    ]
+  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

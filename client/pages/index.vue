@@ -10,10 +10,10 @@
             <input type="submit" value="Login" />
         </form>
         <button v-if="isLoggedin" @click="logout">Logout</button>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br />
+        <br />
+        <br />
+        <br />
         <button @click="test">Test</button>
     </div>
 </template>
@@ -27,8 +27,22 @@ export default {
                 password: ''
             },
 
+            message: null,
+
             isLoggedin: false,
         }
+    },
+
+    mounted() {
+        this.socket = this.$nuxtSocket({
+            name: 'home', // Use socket "home"
+            channel: '/', // connect to '/index'
+
+            // socket.io-client opts:
+            reconnection: false
+        })
+
+        this.getMessage()
     },
 
     methods: {
@@ -50,6 +64,10 @@ export default {
         test() {
             this.$axios.$get('/test')
         },
+
+        getMessage() {
+            this.socket.emit('test', { data: 'Hello World' })
+        }
     },
 }
 </script>
